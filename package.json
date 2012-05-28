@@ -1,12 +1,12 @@
 {
 	"name"        :  "cdnfinder",
-	"version"     :  "1.0.0",
+	"version"     :  "1.0.2",
         "description" :  "Set of scripts to detect CDN usage of websites",
 	"keywords"    :  ["cdn", "finder", "cdnfinder", "dns", "cname", "cdnplanet", "turbobytes", "cdn finder"],
 	"homepage"    :  "https://github.com/sajal/cdnfinder.js",
 	"author"      :  "Sajal Kayan <sajal@turbobytes.com> (http://www.cdnplanet.com/)",
-	"files"       :  ["lib/", "test/" ],
-	"main"        :  "server.js",
+	"files"       :  ["lib/", "test/" , "server.js"],
+	"main"        :  "lib/main.js",
 	"repository"  :  { "type": "git", "url": "git://github.com/sajal/cdnfinder.js.git" },
 	"engines"     :  { "node": ">=0.5.7" },
 	"dependencies":  {"step": "*", "native-dns": "*", "express": "*"}
