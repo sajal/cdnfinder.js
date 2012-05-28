@@ -13,10 +13,6 @@ var testhostnamefinder = function(testcase){
   })  
 }
 
-for(i=0;i<EXPECTATION.length;i++){
-  testhostnamefinder(EXPECTATION[i]);
-}
-
-cdnfinder.hostnamefinder("netdna.cdnplanet.com", function(result){
-  assert.equal(result, "MaxCDN");
+EXPECTATION.forEach(function(testcase){
+  testhostnamefinder(testcase);
 })
