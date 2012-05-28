@@ -11,3 +11,6 @@ You need following nodejs modules installed :-
 * express
 
 You also need phantomjs available somewhere in the system bin path
+
+TODO: Add documentation
+TODO: Write tests
