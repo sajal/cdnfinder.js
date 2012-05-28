@@ -1,0 +1,65 @@
+<html>
+	<head>
+		<title>New CDNfinder TEST PAGE</title>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+			    <script type='text/javascript' src='https://www.google.com/jsapi'></script>
+
+<script type="text/javascript">
+google.load('visualization', '1', {packages:['table']});
+
+function showresult(result){
+	console.log(result);
+	if(result.error){
+		alert(result.error);
+	} else {
+		$("#finderresult")[0].innerHTML = "Basecdn : " + result.basecdn + " ; Asset: " + result.assetcdn;
+		
+		//populate table
+		var data = new google.visualization.DataTable();
+		data.addColumn('string', 'hostname');
+		data.addColumn('string', 'CDN');
+		data.addColumn('number', 'count');
+		data.addColumn('number', 'bytes');
+		data.addColumn('boolean', 'isbase');
+		data.addRows(result.everything.length);
+		for(i=0;i<result.everything.length;i++){
+			data.setCell(i, 0, result.everything[i].hostname);
+			data.setCell(i, 1, result.everything[i].cdn);
+			data.setCell(i, 2, result.everything[i].count);
+			data.setCell(i, 3, result.everything[i].bytes);
+			data.setCell(i, 4, result.everything[i].isbase);
+		}
+		var table = new google.visualization.Table(document.getElementById('datatable'));
+		table.draw(data, {showRowNumber: true});
+		
+	}
+	$("#loading").hide();
+}
+
+
+function runfinder(){
+	var url = $("#url")[0].value;
+	$("#loading").show();
+    $.ajax({
+        type: "POST",
+        //the url where you want to sent the userName and password to
+        url: '/',
+        dataType: 'json',
+        async: true,
+        //json object to sent to the authentication url
+        data: { "url": url},
+        success: showresult
+    })
+
+	//$.getJSON("/", { "url": url}, function(data){ console.log(data);  })
+}
+</script>
+	</head>
+	<body>
+		Enter url here... with http and everything <input id="url" type="text" name="url" />
+  		<input type="submit" value="Submit" onclick="javascript:runfinder()"/>    <br />
+  		<span id="loading" style="display:none">LOADING</span><br />
+  		<span id="finderresult"></span><br />
+		<div id="datatable"></div><br />
+	</body>
+</html>
