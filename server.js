@@ -34,7 +34,7 @@ app.post('/hostname/', function(req, res){
 
 app.get('/', function(req, res){
   console.log(new Date(), req.connection.remoteAddress)
-  fs.readFile(__dirname + '/cdnfinder.html',
+  fs.readFile(__dirname + '/lib/cdnfinder.html',
   function (err, data) {
     if (err) {
       res.writeHead(500);
