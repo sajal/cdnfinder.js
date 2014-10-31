@@ -1,6 +1,6 @@
 {
 	"name"        :  "cdnfinder",
-	"version"     :  "1.0.7",
+	"version"     :  "1.0.9",
         "description" :  "Set of scripts to detect CDN usage of websites",
 	"keywords"    :  ["cdn", "finder", "cdnfinder", "dns", "cname", "cdnplanet", "turbobytes", "cdn finder"],
 	"homepage"    :  "https://github.com/sajal/cdnfinder.js",
