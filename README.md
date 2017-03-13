@@ -1,6 +1,12 @@
 cdnfinder.js
 ============
 
+
+# Depricated/unmaintained
+
+Check (https://github.com/turbobytes/cdnfinder)[https://github.com/turbobytes/cdnfinder]
+
+
 Set of scripts to detect CDN usage of websites
 
 
